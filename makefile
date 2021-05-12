@@ -1,4 +1,5 @@
-CRLS=gds5-16.crl CloudflareIncECCCA-3.crl GTS1O1core.crl gsr2.crl root-r2.crl
+CRLS=gds5-16.crl CloudflareIncECCCA-3.crl GTS1O1core.crl gsr2.crl root-r2.crl \
+		 sca1b.crl
 CSVS=$(subst .crl,.csv,$(CRLS))
 
 .PHONY:all
@@ -22,6 +23,9 @@ gsr2.crl:
 
 root-r2.crl:
 	wget http://crl.globalsign.net/root-r2.crl
+
+sca1b.crl:
+	wget http://crl.sca1b.amazontrust.com/sca1b.crl
 
 .PHONY:csvs
 csvs: $(CSVS)
